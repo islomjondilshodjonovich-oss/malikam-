@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Malikam ❤️</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .app {
+      width: 95%;
+      max-width: 450px;
+      height: 90vh;
+      background: white;
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header {
+      background: #ff4f81;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .chat {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+      background: #fff5f8;
+    }
+
+    .message {
+      padding: 12px 15px;
+      border-radius: 18px;
+      margin-bottom: 10px;
+      max-width: 80%;
+      line-height: 1.4;
+    }
+
+    .malikam {
+      background: #ffd6e3;
+      align-self: flex-start;
+    }
+
+    .user {
+      background: #ff4f81;
+      color: white;
+      margin-left: auto;
+    }
+
+    .input-area {
+      display: flex;
+      padding: 10px;
+      gap: 8px;
+      border-top: 1px solid #ddd;
+    }
+
+    input {
+      flex: 1;
+      padding: 13px;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      outline: none;
+    }
+
+    button {
+      border: none;
+      background: #ff4f81;
+      color: white;
+      padding: 0 18px;
+      border-radius: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="app">
+  <div class="header">💗 Malikam</div>
+
+  <div class="chat" id="chat">
+    <div class="message malikam">
+      Salom, jonim ❤️ Men Malikamman. Siz bilan suhbatlashishga tayyorman 😊
+    </div>
+  </div>
+
+  <div class="input-area">
+    <input id="message" type="text" placeholder="Malikaga yozing...">
+    <button onclick="sendMessage()">➤</button>
+  </div>
+</div>
+
+<script>
+function sendMessage() {
+  const input = document.getElementById("message");
+  const chat = document.getElementById("chat");
+
+  if (input.value.trim() === "") return;
+
+  const userText = document.createElement("div");
+  userText.className = "message user";
+  userText.textContent = input.value;
+  chat.appendChild(userText);
+
+  const malikamText = document.createElement("div");
+  malikamText.className = "message malikam";
+  malikamText.textContent = "Xabaringizni oldim, jonim ❤️";
+  chat.appendChild(malikamText);
+
+  input.value = "";
+  chat.scrollTop = chat.scrollHeight;
+}
+</script>
+
+</body>
+</html>
